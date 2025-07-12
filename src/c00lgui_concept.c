@@ -6,18 +6,22 @@ void c00lmenu_print();
 void c00lfunctions_main();
 
 int main() {
+
     int choice;
     int c00l_loop = 1;
+    
     do {
         c00lmenu_print();
 
         if (scanf("%d", &choice) != 1 && getchar() != '\n') {
             choice = C00L_ERROR_PREVENTION;
             c00l_loop = 0;
+        } else if (choice == 99) {
+            c00l_loop = 0;
         }
-
         c00lfunctions_main(choice);
     } while (c00l_loop == 1);
+
     return 0;
 }
 
